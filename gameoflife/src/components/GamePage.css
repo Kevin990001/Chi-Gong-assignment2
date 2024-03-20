@@ -1,0 +1,25 @@
+.game-container {
+    text-align: center;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(20, 20px); /* Adjust size of grid cells as needed */
+    grid-template-rows: repeat(20, 20px);
+    border: 1px solid black; /* Add border for better visualization */
+  }
+  
+  .cell {
+    width: 20px; /* Adjust size of grid cells as needed */
+    height: 20px;
+    border: 1px solid #ccc; /* Add border for better visualization */
+  }
+  
+  .alive {
+    background-color: #333; /* Color for live cells */
+  }
+  
+  .dead {
+    background-color: #fff; /* Color for dead cells */
+  }
+  
