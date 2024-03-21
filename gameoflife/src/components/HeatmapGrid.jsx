@@ -1,39 +1,43 @@
-// HeatmapGrid.jsx
 import React from 'react';
-import './Grid.css'; // Assuming your CSS styles are applicable globally
 
-const maxHistory = 10; // Maximum history to track
+const getColorForCell = (cellAge) => {
+  const gradient = [
+    "#76ff03", // Alive, green
+    "#aeea00",
+    "#cddc39",
+    "#d4e157",
+    "#dce775", // Middle age
+    "#e6ee9c",
+    "#f0f4c3",
+    "#f9fbe7",
+    "#fff9c4",
+    "#ffecb3",
+    "#ffcc80", // Dead for 10 or more iterations, dark red
+  ];
 
-// Calculate color based on the cell's history
-// Calculate color based on the cell's history
-const calculateColor = (history) => {
-  // Bright green for alive
-  const aliveColor = [0, 255, 0]; // Green
-  // Dark red for dead for 10 or more iterations
-  const deadColor = [139, 0, 0]; // Dark Red
-  const mix = Math.min(history / 10, 1);
-  // Interpolate between the colors based on history
-  const color = aliveColor.map((c, i) => 
-    Math.round(c + (deadColor[i] - c) * mix)
-  );
-  return `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+  // Clamp the cellAge to the range we have defined in our gradient
+  const index = Math.min(cellAge, gradient.length - 1);
+  return gradient[index];
 };
 
-
-const HeatmapGrid = ({ grid, toggleCellState, showHeatmap }) => {
+const HeatmapGrid = ({ grid }) => {
   return (
-    <div className="grid-container" style={{ gridTemplateColumns: `repeat(${grid[0].length}, 20px)` }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: `repeat(${grid[0].length}, 20px)`,
+        gap: '2px',
+      }}
+    >
       {grid.map((row, rowIndex) =>
         row.map((cell, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
-            className="cell"
-            onClick={() => toggleCellState(rowIndex, colIndex)}
             style={{
-              backgroundColor: showHeatmap ? calculateColor(cell) : cell === 0 ? 'red' : 'blue',
-              width: 20,
-              height: 20,
-              border: '1px solid black',
+              width: '20px',
+              height: '20px',
+              backgroundColor: getColorForCell(cell),
+              border: '1px solid #757575',
             }}
           ></div>
         )),
@@ -43,3 +47,4 @@ const HeatmapGrid = ({ grid, toggleCellState, showHeatmap }) => {
 };
 
 export default HeatmapGrid;
+

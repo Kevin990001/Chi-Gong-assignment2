@@ -38,7 +38,7 @@ const CreditsPage = () => {
           <h5 className="card-title">External Resources</h5>
           <p className="card-text">This project was inspired by and built upon a wealth of knowledge and resources, including:</p>
           <ul>
-            <li><a href="https://www.conwaylife.com/wiki/Main_Page" target="_blank" rel="noopener noreferrer">Conway's Game of Life Wiki</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">Conway's Game of Life Wiki</a></li>
             {/* More resources can be listed */}
           </ul>
         </div>
