@@ -1,4 +1,4 @@
-/* Styles for the grid container */
+
 .grid-container > div {
   width: 20px;
   height: 20px;
@@ -6,19 +6,19 @@
 }
 
   
-  /* Styles for each cell in the grid */
+
   .cell {
-    width: 20px; /* Adjust cell size as needed */
+    width: 20px; 
     height: 20px;
-    border: solid 1px black; /* Consider a different color for better visibility */
-    background-color: white; /* Default dead cell color */
+    border: solid 1px black; 
+    background-color: white; 
   }
   
   .cell.alive {
-    background-color: black; /* Color for alive cells */
+    background-color: black; 
   }
   
-  /* Styles for the control panel */
+
   .control-panel {
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@
   .control-panel input {
     padding: 5px;
     font-size: 16px;
-    width: 50px; /* Adjust input width as needed */
+    width: 50px; 
   }
   
   .control-panel button {

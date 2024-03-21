@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Form, Alert, Badge } from 'react-bootstrap';
-import './Grid.css'; // Make sure your CSS file is correctly referenced
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
-import HeatmapGrid from './HeatmapGrid';
+import './Grid.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+
 
 
 const initialRows = 20;
 const initialCols = 20;
 
 
-// Function to create a grid with a random initial state
+
 const createGrid = (rows, cols) => {
   return Array.from({ length: rows }, () =>
     Array.from({ length: cols }, () => Math.random() < 0.05 ? 1 : 0));
@@ -25,12 +25,10 @@ const GamePage = () => {
   const [liveCellsCount, setLiveCellsCount] = useState(0);
 
   useEffect(() => {
-    // Count the live cells whenever the grid updates
     setLiveCellsCount(grid.flat().reduce((acc, cell) => acc + cell, 0));
   }, [grid]);
 
   const updateGridSize = () => {
-    // Validate and update the grid size based on user input
     const newHeight = parseInt(height, 10);
     const newWidth = parseInt(width, 10);
     if (newHeight >= 3 && newHeight <= 40 && newWidth >= 3 && newWidth <= 40) {
@@ -42,14 +40,12 @@ const GamePage = () => {
   };
 
   const toggleCellState = (rowIndex, colIndex) => {
-    // Toggle the state of a cell between alive (1) and dead (0)
     const newGrid = JSON.parse(JSON.stringify(grid));
     newGrid[rowIndex][colIndex] = grid[rowIndex][colIndex] ? 0 : 1;
     setGrid(newGrid);
   };
 
   const progressSimulation = () => {
-    // Apply the rules of Conway's Game of Life to progress the simulation
     const newGrid = grid.map((row, rowIndex) =>
       row.map((cell, colIndex) => {
         let liveNeighbors = 0;
@@ -72,25 +68,28 @@ const GamePage = () => {
     return newGrid;
   };
 
-  const getColorForCell = (cellAge) => {
+  const getColorForCell = (iterationsSinceAlive, isAlive) => {
     const gradient = [
-      "#76ff03", // Alive, green
+      "#76ff03", 
       "#aeea00",
       "#cddc39",
       "#d4e157",
-      "#dce775", // Middle age
+      "#dce775", 
       "#e6ee9c",
       "#f0f4c3",
       "#f9fbe7",
       "#fff9c4",
       "#ffecb3",
-      "#ffcc80", // Dead for 10 or more iterations, dark red
+      "#ffcc80", 
     ];
   
-    // Clamp the cellAge to the range we have defined in our gradient
-    const index = Math.min(cellAge, gradient.length - 1);
+    if (isAlive) return gradient[0]; 
+  
+    
+    const index = Math.min(iterationsSinceAlive, gradient.length - 1);
     return gradient[index];
   };
+  
   
   
   
@@ -159,14 +158,13 @@ const GamePage = () => {
       <div className="grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${grid[0].length}, 20px)` }}>
         {grid.map((row, rowIndex) =>
           row.map((cell, colIndex) => {
-            // Determine color based on the cell's state for the heatmap, otherwise normal coloring
+           
             const backgroundColor = showHeatmap ? getColorForCell(cell) : cell === 0 ? 'green' : 'white';
 
             return (
               <div
                 key={`${rowIndex}-${colIndex}`}
                 style={{ width: '20px', height: '20px', backgroundColor, border: '1px solid #000' }}
-                // Add your onClick event handler if needed
               ></div>
             );
           })

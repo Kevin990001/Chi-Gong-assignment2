@@ -7,20 +7,19 @@ const CreditsPage = () => {
         <h1 className="display-4">Credits</h1>
         <p className="lead">Acknowledgments to those who contributed to this project.</p>
       </div>
-      <div className="card mb-4 shadow-sm"> {/* Added shadow for depth */}
+      <div className="card mb-4 shadow-sm"> 
         <div className="card-body">
           <h5 className="card-title">Project Team</h5>
           <p className="card-text">This project was brought to life by a dedicated team of developers, designers, and enthusiasts passionate about cellular automata.</p>
           <ul>
-            <li>Person A - Developer</li>
-            <li>Person B - Designer</li>
-            <li>Person C - Research</li>
-            {/* Additional team members and roles can be listed here */}
+            <li>Chi - Developer</li>
+            <li>Chi - Designer</li>
+            <li>Chi - Research</li>
           </ul>
         </div>
       </div>
       
-      {/* Optional: Additional sections or cards for special thanks or external resources can be added here */}
+    
       <div className="card mb-4 shadow-sm">
         <div className="card-body">
           <h5 className="card-title">Special Thanks</h5>
@@ -28,7 +27,6 @@ const CreditsPage = () => {
           <ul>
             <li>Community Members</li>
             <li>Open Source Contributors</li>
-            {/* Additional acknowledgments */}
           </ul>
         </div>
       </div>
@@ -39,7 +37,6 @@ const CreditsPage = () => {
           <p className="card-text">This project was inspired by and built upon a wealth of knowledge and resources, including:</p>
           <ul>
             <li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">Conway's Game of Life Wiki</a></li>
-            {/* More resources can be listed */}
           </ul>
         </div>
       </div>

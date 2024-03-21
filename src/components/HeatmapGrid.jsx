@@ -2,20 +2,20 @@ import React from 'react';
 
 const getColorForCell = (cellAge) => {
   const gradient = [
-    "#76ff03", // Alive, green
+    "#76ff03", 
     "#aeea00",
     "#cddc39",
     "#d4e157",
-    "#dce775", // Middle age
+    "#dce775", 
     "#e6ee9c",
     "#f0f4c3",
     "#f9fbe7",
     "#fff9c4",
     "#ffecb3",
-    "#ffcc80", // Dead for 10 or more iterations, dark red
+    "#ffcc80", 
   ];
 
-  // Clamp the cellAge to the range we have defined in our gradient
+  
   const index = Math.min(cellAge, gradient.length - 1);
   return gradient[index];
 };
