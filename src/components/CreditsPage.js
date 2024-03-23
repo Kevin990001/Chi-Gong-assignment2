@@ -34,9 +34,9 @@ const CreditsPage = () => {
       <div className="card mb-4 shadow-sm">
         <div className="card-body">
           <h5 className="card-title">External Resources</h5>
-          <p className="card-text">This project was inspired by and built upon a wealth of knowledge and resources, including:</p>
+          <p className="card-text">Source code</p>
           <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">Conway's Game of Life Wiki</a></li>
+            <li><a href="https://github.com/Kevin990001/Chi-Gong-assignment2" target="_blank" rel="noopener noreferrer">Conway's Game of Life Wiki</a></li>
           </ul>
         </div>
       </div>
