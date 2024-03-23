@@ -36,7 +36,7 @@ const CreditsPage = () => {
           <h5 className="card-title">External Resources</h5>
           <p className="card-text">Source code</p>
           <ul>
-            <li><a href="https://github.com/Kevin990001/Chi-Gong-assignment2" target="_blank" rel="noopener noreferrer">Conway's Game of Life Wiki</a></li>
+            <li><a href="https://github.com/Kevin990001/Chi-Gong-assignment2" target="_blank" rel="noopener noreferrer">Conway's Game of Life</a></li>
           </ul>
         </div>
       </div>
